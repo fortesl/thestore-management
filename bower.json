@@ -1,0 +1,40 @@
+{
+  "name": "TheStore",
+  "version": "0.0.0",
+  "description": "A store built on Angularjs, bootstrap and other cool technologies",
+  "main": "?",
+  "authors": [
+    "Luis Fortes"
+  ],
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "bootstrap": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-translate": "latest",
+    "angular-translate-loader-static-files": "latest",
+    "angular-input-match": "~0.0.2",
+    "firebase": "~2.1.2",
+    "angularfire": "~0.9.0",
+    "angular-bootstrap": "latest",
+    "angular-spinner": "latest",
+    "lf-firebase-auth": "*",
+    "lf-cookies": "*"
+  },
+  "devDependencies": {
+    "angular-mocks": "latest"
+  },
+  "resolutions":{
+    "angular": "1.3.12"
+  }
+}

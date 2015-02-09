@@ -1,0 +1,77 @@
+{
+  "name": "thestore-management",
+  "version": "0.0.1",
+  "description": "An online store built on Angular and Bootstrap technologies.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-angular-templates": "^0.5.7",
+    "grunt-aws": "^0.3.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat-sourcemaps": "^0.6.0",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-htmlmin": "^0.3.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "~0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-exec": "^0.4.6",
+    "grunt-html-angular-validate": "^0.4.0",
+    "grunt-jsonmin": "^0.2.4",
+    "grunt-karma": "^0.9.0",
+    "grunt-processhtml": "^0.3.3",
+    "grunt-protractor-runner": "^1.1.4",
+    "jasmine-spec-reporter": "^1.1.1",
+    "karma": "^0.12.23",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-coverage": "^0.2.7",
+    "karma-detect-browsers": "^1.0.0",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-ie-launcher": "^0.1.5",
+    "karma-jasmine": "^0.1.5",
+    "karma-opera-launcher": "^0.1.0",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-safari-launcher": "^0.1.1",
+    "protractor": "^1.5.0"
+  },
+  "scripts": {
+    "test": "grunt CITest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fortesl/thestore-management.git"
+  },
+  "keywords": [
+    "Angular",
+    "Bootstrap",
+    "Firebase",
+    "Store",
+    "Shopping",
+    "Cart",
+    "ShoppingCart"
+  ],
+  "author": {
+    "name": "Luis Fortes lmlf100@gmail.com",
+    "url": "https://www.linkedin.com/in/luisfortes"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fortesl/thestore/issues",
+    "email": "lmlf100@gmail.com"
+  },
+  "homepage": "http://fortesl.github.io/thestore",
+  "_npmUser": {
+    "name": "fortesl",
+    "email": "fortesl@yahoo.com"
+  },
+  "maintainers": [
+    {
+      "name": "fortesl",
+      "email": "fortesl@yahoo.com"
+    }
+  ]
+}

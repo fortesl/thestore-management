@@ -6,6 +6,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-protractor-runner');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-concat-sourcemaps');
 
     //configure task
     grunt.initConfig({
@@ -15,7 +17,7 @@ module.exports = function(grunt) {
         ],
         testjsFiles: ['tests/unit/**/*.js'],
         e2ejsFiles: ['tests/e2e/**/*.js'],
-        srchtmlFiles: ['src/modules/**/*.html'],
+        srchtmlFiles: ['src/**/*.html'],
         srccssFiles: ['src/modules/**/*.css'],
 
         concat: {
@@ -48,7 +50,7 @@ module.exports = function(grunt) {
             },
             livereload: {
                 options: {
-                    port: 7000,
+                    port: 9090,
                     open: true,
                     base: 'src'
                 }

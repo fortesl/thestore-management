@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('management', ['ngRoute', 'pascalprecht.translate', 'angularSpinner'])
+        .module('management', ['ngRoute', 'pascalprecht.translate', 'ui.bootstrap', 'angularSpinner', 'lfFirebaseAuth', 'firebase', 'directives.inputMatch'])
 
         .constant('FIREBASE_URL',  'https://thestore.firebaseio.com')
 
@@ -16,8 +16,20 @@
 
                 $routeProvider.
                     when('/add-product', {
+                        //resolve:  {
+                        //    isLoggedIn: ['$q', 'lfFirebaseAuthService', function($q, lfFirebaseAuthService) {
+                        //        if (!lfFirebaseAuthService.isLoggedIn()) {
+                        //            return $q(function(resolve, reject) {
+                        //                reject('user is not logged in');
+                        //            });
+                        //        }
+                        //    }]
+                        //},
                         templateUrl: 'modules/management-module/views/add-product.html',
                         controller: 'AddProductController as addProductCtrl'
+                    }).
+                    otherwise({
+                        redirectTo: '/add-product'
                     });
 
                 // enable http caching

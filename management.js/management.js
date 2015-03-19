@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('management', ['ngRoute', 'pascalprecht.translate', 'angularSpinner', 'lfFirebaseAuth', 'firebase', 'directives.inputMatch', 'lf-toastr'])
+        .module('management', ['ngRoute', 'pascalprecht.translate', 'ui.bootstrap', 'angularSpinner', 'lfFirebaseAuth', 'firebase', 'directives.inputMatch'])
 
         .constant('FIREBASE_URL',  'https://thestore.firebaseio.com')
 
@@ -53,9 +53,8 @@
 (function () {
     'use strict';
 
-    angular.module('management').controller('AddProductController', [ 'ProductManagementService', 'ManagementLabels', 'lfToastrService',
-        function(ProductManagementService, ManagementLabels, lfToastrService) {
-
+    angular.module('management').controller('AddProductController', [ 'ProductManagementService', 'ManagementLabels',
+        function(ProductManagementService, ManagementLabels) {
         var self = this;
 
         self.init = function () {
@@ -64,18 +63,14 @@
             self.departments = [];
             self.categories = [];
 
-            ProductManagementService.getList('/departments').then(function(result) {
+            ProductManagementService.getDepartments().then(function(result) {
                 self.departments = result;
                 localizeOther(self.departments);
-            }, function(error) {
-                lfToastrService.openToast(error.message, 'GET Departments', {closeButton: true, positionClass: 'toast-top-right'});
             });
 
-            ProductManagementService.getList('/categories').then(function(result) {
+            ProductManagementService.getCategories().then(function(result) {
                 self.categories = result;
                 localizeOther(self.categories);
-            }, function(error) {
-                lfToastrService.openToast(error.message, 'GET Categories', {timeOut: 5000, positionClass: 'toast-top-right'});
             });
 
             self.submitFormLabel = self.labels.continueForm();
@@ -86,14 +81,14 @@
             var listOther = false;
             angular.forEach(list, function(item) {
                 if (item.id) {
-                    item.label = self.labels.other();
+                    item.label = self.labels.others();
                     listOther = true;
                 }
             });
 
-            if (!listOther) {
-                ProductManagementService.addListItem(list, {label: 'Other', id: 2000});
-            }
+            //if (!listOther) {
+            //    ProductManagementService.addListItem(list, {label: 'Other', id: 2000});
+            //}
         };
 
         self.add = function() {
@@ -240,16 +235,11 @@
         //    });
         //}
 
-        function getList(path) {
-            return $q(function(resolve, reject) {
-                var ref = new Firebase(FIREBASE_URL + path);
-                var list = $firebase(ref).$asArray();
-                list.$loaded().then(function(rlist) {
-                    resolve(rlist);
-                })
-                .catch(function(error) {
-                    reject(error);
-                });
+        function getDepartments() {
+            return $q(function(resolve) {
+                var ref = new Firebase(FIREBASE_URL + '/departments');
+                var departments = $firebase(ref).$asArray();
+                resolve(departments);
             });
 
         }
@@ -262,9 +252,19 @@
             });
         }
 
+        function getCategories() {
+            return $q(function(resolve) {
+                var ref = new Firebase(FIREBASE_URL + '/categories');
+                var categories = $firebase(ref).$asArray();
+                resolve(categories);
+            });
+
+        }
+
         return {
-            getList: getList,
-            addListItem: addListItem
+            getDepartments: getDepartments,
+            addListItem: addListItem,
+            getCategories: getCategories
         };
     }]);
 

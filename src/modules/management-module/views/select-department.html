@@ -21,7 +21,7 @@
                     <div class="st-form-label">{{addProductCtrl.labels.repeatNewDepartment()}}</div>
                     <input name="repeatDepartment" data-match="addProductCtrl.newDepartmentName" class="st-form-field st-form-input form-control" ng-model="addProductCtrl.repeatNewDepartmentName"
                            placeholder="{{addProductCtrl.labels.repeatNewDepartment()}}" ng-required="addProductCtrl.selectedDepartment.id">
-                    <span ng-show="addProductCtrl.form.selectDepartment.repeatDepartment.$error.match">{{ addProductCtrl.labels.departmentMismatch() }}</span>
+                    <span class="error-message" ng-show="addProductCtrl.form.selectDepartment.repeatDepartment.$error.match">{{ addProductCtrl.labels.departmentMismatch() }}</span>
                 </div>
             </div>
         </div>

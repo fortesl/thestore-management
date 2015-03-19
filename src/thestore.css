@@ -7,6 +7,14 @@
 .ng-valid.ng-dirty {
   border-color: #78FA89; }
 
+.error-message {
+    background-color: red;
+    color: white;
+    padding: 4px 10px 1px 5px;
+    border-radius: 4px;
+    font-family: courier;
+}
+
 /* Space out content a bit */
 body {
   padding-left: 0.3em;

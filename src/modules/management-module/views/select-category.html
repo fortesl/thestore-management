@@ -21,7 +21,7 @@
                     <div class="st-form-label">{{addProductCtrl.labels.repeatNewCategory()}}</div>
                     <input name="repeatCategory" data-match="addProductCtrl.newCategoryName" class="st-form-field st-form-input form-control" ng-model="addProductCtrl.repeatNewCategoryName"
                            placeholder="{{addProductCtrl.labels.repeatNewCategory()}}" ng-required="addProductCtrl.selectedCategory.id">
-                    <span ng-show="addProductCtrl.form.selectCategory.repeatCategory.$error.match">{{ addProductCtrl.labels.categoryMismatch() }}</span>
+                    <span class="error-message" ng-show="addProductCtrl.form.selectCategory.repeatCategory.$error.match">{{ addProductCtrl.labels.categoryMismatch() }}</span>
                 </div>
             </div>
         </div>

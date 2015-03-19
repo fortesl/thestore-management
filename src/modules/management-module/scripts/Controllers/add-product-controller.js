@@ -6,8 +6,9 @@
 (function () {
     'use strict';
 
-    angular.module('management').controller('AddProductController', [ 'ProductManagementService', 'ManagementLabels',
-        function(ProductManagementService, ManagementLabels) {
+    angular.module('management').controller('AddProductController', [ 'ProductManagementService', 'ManagementLabels', 'lfToastrService',
+        function(ProductManagementService, ManagementLabels, lfToastrService) {
+
         var self = this;
 
         self.init = function () {
@@ -16,14 +17,18 @@
             self.departments = [];
             self.categories = [];
 
-            ProductManagementService.getDepartments().then(function(result) {
+            ProductManagementService.getList('/departments').then(function(result) {
                 self.departments = result;
                 localizeOther(self.departments);
+            }, function(error) {
+                lfToastrService.openToast(error.message, 'GET Departments', {closeButton: true, positionClass: 'toast-top-right'});
             });
 
-            ProductManagementService.getCategories().then(function(result) {
+            ProductManagementService.getList('/categories').then(function(result) {
                 self.categories = result;
                 localizeOther(self.categories);
+            }, function(error) {
+                lfToastrService.openToast(error.message, 'GET Categories', {timeOut: 5000, positionClass: 'toast-top-right'});
             });
 
             self.submitFormLabel = self.labels.continueForm();
@@ -34,14 +39,14 @@
             var listOther = false;
             angular.forEach(list, function(item) {
                 if (item.id) {
-                    item.label = self.labels.others();
+                    item.label = self.labels.other();
                     listOther = true;
                 }
             });
 
-            //if (!listOther) {
-            //    ProductManagementService.addListItem(list, {label: 'Other', id: 2000});
-            //}
+            if (!listOther) {
+                ProductManagementService.addListItem(list, {label: 'Other', id: 2000});
+            }
         };
 
         self.add = function() {

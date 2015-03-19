@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('management', ['ngRoute', 'pascalprecht.translate', 'ui.bootstrap', 'angularSpinner', 'lfFirebaseAuth', 'firebase', 'directives.inputMatch'])
+        .module('management', ['ngRoute', 'pascalprecht.translate', 'angularSpinner', 'lfFirebaseAuth', 'firebase', 'directives.inputMatch', 'lf-toastr'])
 
         .constant('FIREBASE_URL',  'https://thestore.firebaseio.com')
 
